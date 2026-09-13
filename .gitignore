@@ -16,6 +16,7 @@ env
 .vscode/
 
 # Data files
-.csv
-.zip
+*.csv
+*.zip
 data
+*.html
