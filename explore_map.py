@@ -61,8 +61,10 @@ street_layer = pdk.Layer(
 
 # blargh, some of these stops are only worker driver stops
 routes = pd.read_csv(os.path.join(GTFS_DIR,"routes.txt"))
-trips = pd.read_csv(os.path.join(GTFS_DIR,"trips.txt"))
-stop_times = pd.read_csv(os.path.join(GTFS_DIR,'stop_times.txt'))
+# i think that some trip_ids are being read as str and some as int 
+# sfixed in osm
+trips = pd.read_csv(os.path.join(GTFS_DIR,"trips.txt"), dtype={'trip_id': str})
+stop_times = pd.read_csv(os.path.join(GTFS_DIR,'stop_times.txt'), dtype={'trip_id': str})
 stop_route_mapping = stop_times.merge(trips, on='trip_id')[['stop_id', 'route_id']].drop_duplicates()
 print(stop_route_mapping[['stop_id','route_id']].head())
 stop_routes = (

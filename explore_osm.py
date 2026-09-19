@@ -24,8 +24,10 @@ print(edges_gdf.head())
 stops_df = pd.read_csv(os.path.join(GTFS_DIR,"stops.txt"))
 print(stops_df[['stop_id', 'stop_name', 'stop_lat', 'stop_lon']].head())
 routes = pd.read_csv(os.path.join(GTFS_DIR,"routes.txt"))
-trips = pd.read_csv(os.path.join(GTFS_DIR,"trips.txt"))
-stop_times = pd.read_csv(os.path.join(GTFS_DIR,'stop_times.txt'))
+# i think that some trip_ids are being read as str and some as int 
+# see if fix
+trips = pd.read_csv(os.path.join(GTFS_DIR,"trips.txt"), dtype={'trip_id': str})
+stop_times = pd.read_csv(os.path.join(GTFS_DIR,'stop_times.txt'), dtype={'trip_id': str})
 stop_route_mapping = stop_times.merge(trips, on='trip_id')[['stop_id', 'route_id']]
 # ugh save and look
 stop_route_mapping.to_csv(os.path.join(DATA_DIR, "tmp",'stop_route_mapping.csv'), index=False)
