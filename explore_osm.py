@@ -14,6 +14,7 @@ nodes_gdf, edges_gdf = ox.graph_to_gdfs(graph)
 print("--- NODE ATTRIBUTES ---")
 print(nodes_gdf.columns)
 print(nodes_gdf[['x', 'y']].head()) # 'x' is longitude, 'y' is latitude
+print(nodes_gdf.head())
 
 print("\n--- EDGE ATTRIBUTES ---")
 print(edges_gdf.columns)
