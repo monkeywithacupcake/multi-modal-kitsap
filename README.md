@@ -15,3 +15,13 @@ I am going to use this as a bit of a record for myself, and that is not normally
 
 ### Week 1
 
+- get transit data: I was able to read in the static Kitsap Transit routes and stops. I had done this previously in R, and I have the live GTFS feed on my wall, but this is the first time that I pulled it via python. I ran into some hurdles, but nothing big.
+- get osm data: I was able to read in the OSM data for the county. I also had this previously when I was working on contributing to OSM and flagging private roads as well as bike parking and unlabeled paths.
+
+### Week 2
+- identify nearest node: Match up the nearest OSM node to the bus stops. This was pretty straightforward, but I had to read over docs because I only previously knew how to do this with simple features (sf) in R. 
+- made some sketchy graphs to help orient myself with the density of the challenge. Really, if points a and b are outside of the KT routes (generally east of 3), the user's preference between bike and walk will be the only issue, and then we are routing based on preferences. East of 3, during transit running times, we will have to consider different preference weights for each edge when considering getting to point b directly from point a as well as any buses that might be between the two. (i think ideally, we would also allow a bus that overshoots, but that is a problem for the future).
+- read about Dijkstra's algorithm - which I was hoping would work here, but it might be a challenge when considering that bus routes are fixed and safety (or other preference weights) could impact whether user makes it to a certain bus. 
+
+**next step:** make a simple Dijkstra over a few nodes. I'd like to have a more solidy grasp of this algorithm - actually making it work rather than reading and nodding along. 
+
