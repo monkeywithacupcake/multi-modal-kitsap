@@ -23,5 +23,11 @@ I am going to use this as a bit of a record for myself, and that is not normally
 - made some sketchy graphs to help orient myself with the density of the challenge. Really, if points a and b are outside of the KT routes (generally east of 3), the user's preference between bike and walk will be the only issue, and then we are routing based on preferences. East of 3, during transit running times, we will have to consider different preference weights for each edge when considering getting to point b directly from point a as well as any buses that might be between the two. (i think ideally, we would also allow a bus that overshoots, but that is a problem for the future).
 - read about Dijkstra's algorithm - which I was hoping would work here, but it might be a challenge when considering that bus routes are fixed and safety (or other preference weights) could impact whether user makes it to a certain bus. 
 
-**next step:** make a simple Dijkstra over a few nodes. I'd like to have a more solidy grasp of this algorithm - actually making it work rather than reading and nodding along. 
+### Week this one
+- make a simple Dijkstra over a few nodes. This is just walking by length right now. 
+- I figured out how to print each possible path and the full best one by length
+- I don't like it because it seems wasteful to calculate a distance between two nodes if the next node is a dead end and is not my dest. i'm not sure yet how to improve that part.
+
+next steps: figue out how to calculate the impact of hills on speed and use speed/effort instead of just length as a variable; allow user to see shortest and fastest
+
 
